@@ -23,7 +23,7 @@ namespace ToDoDemo.Models
 
         [Required(ErrorMessage = "Please select a status.")]
 
-        public string StatusId { get; set; } = string.Empty;
+        public string StatusId { get; set; } = "open";
 
         [ValidateNever]
         public Status Status { get; set; } = null!;

@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Tasks</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ToDo.styles.css" asp-append-version="true" />
+</head>
+<body>
+
+    <div class="container">
+        <header class=" row">
+            <div class="col">
+            <h1 class="m-3 p-3">My Tasks</h1>
+                    <div class="col">
+                        <a asp-action="Add" class="btn btn-primary float-end">Add</a>
+                        <br />
+                        <hr />
+                        @*sdasdasd<text type="submit" class="text text-danger">Delete completed tasks</text>*@
+                </div>
+        </header>
+        <main>
+            @RenderBody()
+        </main>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

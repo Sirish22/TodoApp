@@ -2,46 +2,48 @@
 @{
     var due = ViewBag.DueFilters;
     var filters = ViewBag.Filters as IEnumerable<Filters>;
+    Layout = "~/Views/Shared/_layoutforindex.cshtml";
 }
-<div class="row">
-    <div class="col-md-2">
+<!DOCTYPE html>
+<html>
+
+<body>
         <form asp-action="Filter" method="post">
-            <div class="mb-3">
+        <div class="row">
+            <div class="col-3">
                 <label class="form-label">Category</label>
                 <select name="filter" class="form-select"
-                        asp-items="@(new SelectList(ViewBag.Categories,"CategoryId","Name",ViewBag.Filters.CategoryId))">
+                        asp-items="@(new SelectList(ViewBag.Categories,"CategoryId","Name",ViewBag.Filters.CategoryId))" onchange="this.form.submit()">
+                    <option value="all">All</option>
+                </select>
+                </div>
+
+            @*            //Test (Remove it)*@
+            @*@ <div class="mb-3">
+            <label class="form-label"> Due:</label>
+            <select asp-items="@due">
+            <option>Please select an item</option>
+            </select>
+            </div>*@
+            <div class="col-3">
+                <label class="form-label">Date</label>
+                <select name="filter" class="form-select"
+                        asp-items="@(new SelectList(@due, "Value", "Text", ViewBag.Filters.Due))" onchange="this.form.submit()">
+                    <option value="all">All</option>
+                </select>
+                </div>
+            <div class="col-3">
+                <label class="form-label">Status</label>
+                <select name="filter" class="form-select"
+                        asp-items="@(new SelectList(ViewBag.Statuses,"StatusId", "Name", ViewBag.Filters.StatusId))" onchange="this.form.submit()">
                     <option value="all">All</option>
                 </select>
             </div>
-
-@*            //Test (Remove it)*@           
-           @*@ <div class="mb-3">
-                <label class="form-label"> Due:</label>
-                <select asp-items="@due">
-                    <option>Please select an item</option>
-                </select>
-            </div>*@
-            
-
-
-             <div class="mb-3">
-            <label class="form-label"> Due:</label>
-            <select name="filter" class="form-select"
-             asp-items="@(new SelectList(@due, "Value", "Text", ViewBag.Filters.Due))">
-            <option value="all">All</option>
-            </select>
             </div>
-            <div class="mb-3">
-                <label class="form-label">Status:</label>
-                <select name="filter" class="form-select"
-                asp-items="@(new SelectList(ViewBag.Statuses,"StatusId", "Name", ViewBag.Filters.StatusId))">
-                <option value="all">All</option>
-            </select>
-            </div>
-            <button type="submit" class="btn btn-primary">Filter</button>
-            <a asp-action="Index" asp-route-itemid="" class="btn btn-primary">Clear</a>
+            @* <button type="submit" class="btn btn-primary">Filter</button>
+            <a asp-action="Index" asp-route-itemid="" class="btn btn-primary">Clear</a>*@
         </form>
-    </div>
+<div class="row">
     <div class="col-md-10">
         <form asp-action="MarkComplete" method="post" asp-route-id="@ViewBag.Filters.FilterString">
             <table class="table table-bordered table-striped mt-2">
@@ -57,7 +59,7 @@
                 <tbody>
                     @foreach(ToDo task in Model)
                     {
-                        string overdue = task.Overdue ? "bg-warning" : "";
+                        string overdue = task.Overdue ? "" : "";
                         <tr>
                             <td>@task.Description</td>
                             <td>@task.Category.Name</td>
@@ -77,8 +79,8 @@
 
         </form>
         <form asp-action="DeleteComplete" method="post" asp-route-id="@ViewBag.Filters.FilterString">
-            <a asp-action="Add" class="btn btn-primary">Add</a>
-            <button type="submit" class="btn btn-primary">Delete completed tasks</button>
         </form>
     </div>
 </div>
+</body>
+</html>

@@ -20,7 +20,7 @@ namespace ToDoDemo.Controllers
 
 
             // Created a list of KeyValuePair
-              List<KeyValuePair<string, string>> DueFilter = new List<KeyValuePair<string, string>>()
+            List<KeyValuePair<string, string>> DueFilter = new List<KeyValuePair<string, string>>()
                 {
                     new KeyValuePair<string, string>("future", "Future"),
                     new KeyValuePair<string, string>("past","Past"),
@@ -59,6 +59,10 @@ namespace ToDoDemo.Controllers
             {
                 query = query.Where(t => t.StatusId == filters.StatusId);
             }
+            else
+            {
+                query = query.Where(t => t.StatusId == "open");
+            }
 
             if (filters.HasDue)
             {
@@ -78,6 +82,7 @@ namespace ToDoDemo.Controllers
                 }
             }
             var tasks = query.OrderBy(t => t.DueDate).ToList();
+            //var tasks = query.Where(x => x.Status.StatusId != "closed").OrderBy(t => t.DueDate).ToList();
 
             return View(tasks);
 
@@ -88,8 +93,7 @@ namespace ToDoDemo.Controllers
         public IActionResult Add()
         {
             ViewBag.Categories = context.Categories.ToList();
-            ViewBag.Statuses = context.Statuses.ToList();
-            var task = new ToDo { StatusId = "opem" };
+            var task = new ToDo { StatusId = "open" };
             return View(task);
         }
 

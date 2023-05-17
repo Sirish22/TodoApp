@@ -1,12 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "hUKXGPm6Lno4CHC3UtS9AWC+BRi3XmCjeMqB8DQxtpdPMm24luUe2ttj5sX0a3QQKhQKXFAWVlTHOZHdKh9aNQ==",
+  "dgSpecHash": "aBs5/iWql+C7C/pyjrHoo5YQ6GD6CerIWRg1BxwCp6YvMYFa5tNNFZYuYGyhnDNKrQksZlKHvO4LPlfNVDQxoQ==",
   "success": true,
   "projectFilePath": "D:\\dot net projects\\ToDoApp\\ToDo\\ToDoDemo.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\jquery\\1.12.4\\jquery.1.12.4.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\jquery.ui\\1.12.1.1\\jquery.ui.1.12.1.1.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.data.sqlclient\\5.0.1\\microsoft.data.sqlclient.5.0.1.nupkg.sha512",
