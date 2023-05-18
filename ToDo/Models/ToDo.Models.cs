@@ -11,7 +11,7 @@ namespace ToDoDemo.Models
 
         [Required(ErrorMessage = "Please enter a due date.")]
 
-        public DateTime? DueDate { get; set; }
+        public DateTime DueDate { get; set; }
 
         [Required(ErrorMessage = "Please select a category.")]
 

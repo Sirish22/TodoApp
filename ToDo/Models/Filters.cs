@@ -15,7 +15,7 @@
 
         public string CategoryId { get; }
 
-        public string Due { get; }
+        public String Due { get; }
 
         public string StatusId { get; }
 
